@@ -9,6 +9,12 @@ import { WelcomeComponent } from './home/home.component';
 export const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'contact', component: ContactFormComponent },
+  {
+    path: 'events',
+    data: { preload: false },
+    loadChildren: () =>
+      import('./events/events.module').then((m) => m.EventsModule),
+  },
   { path: 'messages', component: ViewMessagesComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   //if the path is not found. for any other path, go here

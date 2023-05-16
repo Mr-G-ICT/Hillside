@@ -6,24 +6,19 @@ import { ContactFormData } from '../app/contact/contact.model';
 @Injectable({
   providedIn: 'root',
 })
-//this is my crud service
+//this is my crud service incomplete, currently not working.
 export class MessageService {
   SERVER_URL: string = 'api/messages';
   constructor(private httpClient: HttpClient) {}
   messagesChanged = new Subject<ContactFormData[]>();
 
   getMessages(): Observable<ContactFormData[]> {
+    console.log('in here');
     return this.httpClient.get<ContactFormData[]>(this.SERVER_URL).pipe(
       tap((data) => console.log('All :', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
-
-  // //this is for local, the post request is for later
-  // addMessage(message: ContactFormData): void {
-  //   this.messages.push(message);
-  //   this.messagesChanged.next(this.messages.slice());
-  // }
 
   postContactForm(contactData: ContactFormData): Observable<any> {
     //set up the post command for the HTTP client.
