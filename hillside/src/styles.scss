@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+$primary-bg-colour: #ce0e2d;
+
+$alt-bg-colour: #ce0e2d;
+$alt-text-colour: #fff;
+
+.headerTitle {
+  color: #ce0e2d;
+}
+
+body {
+  --text-color: #222;
+  --bkg-color: white;
+  --btn-txt-color: white;
+  --btn-bg-color: #ce0e2d;
+}
+
+body.dark-theme {
+  --text-color: #fff;
+  --bkg-color: #252222;
+  --btn-txt-color: #fff;
+  --btn-bg-color: rgb(20, 211, 195);
+}
+
+body {
+  background: var(--bkg-color);
+}
+
+h1,
+h3,
+h4,
+p,
+label {
+  color: var(--text-color);
+}
+button {
+  margin: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 0.5em;
+  color: var(--btn-txt-color);
+  background-color: var(--btn-bg-color);
+  transition-duration: 0.4s;
+}
+button:hover {
+  background-color: #f01f41;
+}
