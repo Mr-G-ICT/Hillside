@@ -1,24 +1,29 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 import { ContactFormComponent } from './contact.component';
 import { Component } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { of } from 'rxjs';
+import { MessageService } from 'src/api/message.service';
+
+const requiredFields = ['name', 'email', 'enquiryType', 'contactMessage'];
 
 describe('Contact Form Component', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ReactiveFormsModule],
       declarations: [ContactFormComponent],
-      //commented out as this is not implemented at the moment
-      // providers: [{provide: ContactService, useValue: contactService }]
     }).compileComponents();
   });
 
-  //we need to fake the contact service, so we need to fake it.
-  //do we need this, as all the info is going to be submitted anyways, so not needed
-  // const contactFormService:
-  //   Pick<contactFormService, keyof contactFormService> = {
-  //   isName
-  // }
+  let fixture: ComponentFixture<ContactFormComponent>;
+  let signupService: jasmine.SpyObj<MessageService>;
+
+  //set up the contact service test runner, not built the service up yet
+  const setup = async (
+    signupServiceReturnValues?: jasmine.SpyObjMethodNames<MessageService>,
+  ) => {
+    signupService = jasmine.createSpyObj<MessageService>('MessageService', {
+    });
 
   it(`should have as title 'Contact Us'`, () => {
     const fixture = TestBed.createComponent(ContactFormComponent);
@@ -33,3 +38,7 @@ describe('Contact Form Component', () => {
       app.ngOnInit();
     };
 });
+
+it('should submit the form successfully', fakeAsync(async () => {
+  await setup();
+}))
