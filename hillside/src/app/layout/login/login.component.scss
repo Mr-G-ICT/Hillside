@@ -1,0 +1,12 @@
+.login-navbar {
+  float: right;
+  a.nav-element {
+    text-decoration: none;
+    color: grey;
+    vertical-align: center;
+    padding: 1em;
+  }
+  a.nav-element:hover {
+    color: black;
+  }
+}

@@ -1,0 +1,31 @@
+.main-header {
+  h1 {
+    font-family: "Franklin Gothic Medium", Arial, sans-serif;
+    font-weight: 900;
+  }
+  img {
+    float: right;
+    width: 50px;
+  }
+}
+
+.main-navbar {
+  background-color: #ce0e2d;
+
+  a.nav-element {
+    text-decoration: none;
+    color: white;
+    vertical-align: center;
+    padding: 1em;
+  }
+  a.nav-element:hover {
+    color: black;
+  }
+  a.nav-element.active {
+    color: #ceaf0e;
+  }
+}
+
+.second-row-right {
+  float: right;
+}

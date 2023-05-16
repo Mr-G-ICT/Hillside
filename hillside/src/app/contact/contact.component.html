@@ -1,0 +1,113 @@
+<div class="container">
+  <h1 class="headerTitle">{{ pageTitle }}</h1>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <div formGroupName="userData">
+      <div class="row form-group">
+        <div class="col-sm-1">
+          <label for="name">Name: </label>
+        </div>
+        <div class="col-sm-5">
+          <input
+            id="name"
+            type="text"
+            class="form-control"
+            formControlName="name"
+          />
+        </div>
+        <span
+          *ngIf="
+            !contactForm.get('userData.name')?.valid &&
+            contactForm.get('userData.name')?.touched
+          "
+          class="help-block"
+        >
+          <span
+            *ngIf="
+              contactForm.get('userData.name')?.hasError('nameIsForbidden')
+            "
+            >invalid Name</span
+          >
+          <span
+            *ngIf="
+              !contactForm.get('userData.name')?.hasError('nameIsForbidden') &&
+              contactForm.get('userData.name')?.hasError('required')
+            "
+            >This field is required</span
+          >
+        </span>
+      </div>
+      <div class="row form-group">
+        <div class="col-sm-1">
+          <label for="name">Email: </label>
+        </div>
+        <div class="col-sm-5">
+          <input
+            id="email"
+            type="text"
+            class="form-control"
+            name="email"
+            formControlName="email"
+          />
+        </div>
+        <span
+          *ngIf="
+            !contactForm.get('userData.email')?.valid &&
+            contactForm.get('userData.email')?.touched
+          "
+          class="help-block"
+        >
+          Please enter a valid email</span
+        >
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-1">
+        <label for="enquiryType">EnquiryType: </label>
+      </div>
+      <div class="col-sm-5">
+        <select
+          id="enquiryType"
+          name="enquiryType"
+          class="form-control"
+          formControlName="enquiryType"
+          required
+        >
+          <option *ngFor="let enquiry of enquiryTypes">
+            {{ enquiry }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-1">
+        <label for="contactMessage">Message: </label>
+      </div>
+      <div class="col-sm-5">
+        <textarea
+          id="contactMessage"
+          name="contactMessage"
+          class="form-control"
+          formControlName="contactMessage"
+          rows="3"
+        ></textarea>
+      </div>
+      <span
+        *ngIf="
+          !contactForm.get('contactMessage')?.valid &&
+          contactForm.get('contactMessage')?.touched
+        "
+        class="help-block"
+      >
+        Please enter a message</span
+      >
+    </div>
+    <button
+      class="btn btn-success"
+      type="submit"
+      [disabled]="!contactForm.valid"
+    >
+      Submit
+    </button>
+    <button class="btn btn-warning" type="clear">Clear</button>
+  </form>
+</div>
