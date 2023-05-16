@@ -2,7 +2,7 @@ import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { ContactFormData } from '../app/contact/contact.model';
 
 export class InMemoryDb implements InMemoryDbService {
-  constructor();
+  constructor() {}
   createDb(): { messages: ContactFormData[] } {
     const messages: ContactFormData[] = [
       {

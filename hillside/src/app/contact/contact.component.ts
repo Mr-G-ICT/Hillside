@@ -66,13 +66,15 @@ export class ContactFormComponent implements OnInit {
       this.contactForm.value['contactMessage'],
       submissionDate.toISOString()
     );
-    //need to create a model for this form to complete
+
     console.log('in onSubmit: ', this.contactForm.valid);
     if (this.contactForm.valid) {
-      this.messageService.postContactForm(contactSubmission).subscribe(
-        (result) => console.log('success', result),
-        (error) => this.onHttpError(error)
-      );
+      this.messageService.postContactForm(contactSubmission).subscribe({
+        next: (result) => {
+          console.log('success', result);
+        },
+        error: (error) => this.onHttpError(error),
+      });
     } else {
       this.postError = true;
       this.postErrorMessage = 'please fix the above errors';

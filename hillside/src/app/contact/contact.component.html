@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container col-sm-8">
   <h1 class="headerTitle">{{ pageTitle }}</h1>
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div formGroupName="userData">
       <div class="row form-group">
-        <div class="col-sm-1">
+        <div class="col-sm-2">
           <label for="name">Name: </label>
         </div>
         <div class="col-sm-5">
@@ -37,7 +37,7 @@
         </span>
       </div>
       <div class="row form-group">
-        <div class="col-sm-1">
+        <div class="col-sm-2">
           <label for="name">Email: </label>
         </div>
         <div class="col-sm-5">
@@ -61,7 +61,7 @@
       </div>
     </div>
     <div class="row form-group">
-      <div class="col-sm-1">
+      <div class="col-sm-2">
         <label for="enquiryType">EnquiryType: </label>
       </div>
       <div class="col-sm-5">
@@ -79,7 +79,7 @@
       </div>
     </div>
     <div class="row form-group">
-      <div class="col-sm-1">
+      <div class="col-sm-2">
         <label for="contactMessage">Message: </label>
       </div>
       <div class="col-sm-5">
@@ -101,13 +101,7 @@
         Please enter a message</span
       >
     </div>
-    <button
-      class="btn btn-success"
-      type="submit"
-      [disabled]="!contactForm.valid"
-    >
-      Submit
-    </button>
+    <button class="btn btn-success" type="submit">Submit</button>
     <button class="btn btn-warning" type="clear">Clear</button>
   </form>
 </div>

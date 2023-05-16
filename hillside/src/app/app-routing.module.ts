@@ -5,16 +5,10 @@ import { ContactFormComponent } from './contact/contact.component';
 import { ViewMessagesComponent } from './contact/viewMessages/viewMessages.component';
 import { WelcomeComponent } from './home/home.component';
 
-//i need to export this so i can test it
+//i need to export this s i can test it
 export const routes: Routes = [
   { path: 'welcome', component: WelcomeComponent },
   { path: 'contact', component: ContactFormComponent },
-  {
-    path: 'events',
-    data: { preload: false },
-    loadChildren: () =>
-      import('./events/events.module').then((m) => m.EventsModule),
-  },
   { path: 'messages', component: ViewMessagesComponent },
   { path: '', redirectTo: 'welcome', pathMatch: 'full' },
   //if the path is not found. for any other path, go here
