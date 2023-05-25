@@ -1,1 +1,63 @@
-this is the login page this is the login page
+<div class="card">
+  <div class="card-header">
+    <h1>{{ pageTitle }}</h1>
+  </div>
+  <div class="card-body">
+    <form
+      #form="ngForm"
+      (ngSubmit)="onSubmit(form)"
+      class="loginForm"
+      autocomplete="off"
+    >
+      <fieldset>
+        <div class="row form-group">
+          <div class="col-sm-2 col-form-label">
+            <label for="name">UserName</label>
+          </div>
+          <div class="col-sm-5">
+            <input
+              id="userName"
+              name="userName"
+              [(ngModel)]="currentLoginSettings.userName"
+              type="text"
+              #nameField="ngModel"
+              required
+              class="col-md-8"
+              (blur)="onBlur(nameField)"
+              [class.field-error]="form.submitted && nameField.invalid"
+            />
+            <div
+              [hidden]="!form.submitted || nameField.valid"
+              class="alert alert-danger"
+            >
+              enter a username
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <label for="passwordId" class="col-md-2 col-form-label"
+            >Password</label
+          >
+          <input
+            id="passwordId"
+            type="password"
+            placeholder="Password(required)"
+            required
+            ngModel
+            name="password"
+            #passwordVar="ngModel"
+            class="col-md-8"
+            required
+            minlength="3"
+          />
+        </div>
+
+        <div [hidden]="!postError" class="alert alert-danger">
+          {{ postErrorMessage }}
+        </div>
+        <button class="btn btn-primary">Submit</button>
+      </fieldset>
+    </form>
+  </div>
+</div>

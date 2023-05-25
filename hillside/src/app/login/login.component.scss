@@ -1,0 +1,13 @@
+@use "../../styles.scss";
+
+.loginForm {
+  padding: 1em;
+
+  .loginFormGroup {
+    padding-top: 1em;
+  }
+
+  .field-error {
+    border: 1px solid styles.$alt-bg-colour;
+  }
+}

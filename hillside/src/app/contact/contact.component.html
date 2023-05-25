@@ -1,5 +1,23 @@
 <div class="container col-sm-8">
   <h1 class="headerTitle">{{ pageTitle }}</h1>
+
+  <p
+    *ngIf="submitProgress === 'success'"
+    role="status"
+    class="form-submit-success"
+    data-testid="status"
+  >
+    <strong>Message submitted successfully!</strong>
+  </p>
+  <p
+    *ngIf="submitProgress === 'error'"
+    role="status"
+    class="error-text form-submit-error"
+    data-testid="status"
+  >
+    <strong>Submission error</strong>
+  </p>
+
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div formGroupName="userData">
       <div class="row form-group">

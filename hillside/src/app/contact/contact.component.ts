@@ -21,6 +21,7 @@ export class ContactFormComponent implements OnInit {
 
   postError = false;
   postErrorMessage = '';
+  submitProgress: 'idle' | 'success' | 'error' = 'idle';
 
   //dataservice is the issue
   constructor(private messageService: MessageService) {}
@@ -55,9 +56,8 @@ export class ContactFormComponent implements OnInit {
     this.postErrorMessage = errorResponse.error.errorMessage;
   }
 
-  onSubmit() {
+  onSubmit(): void {
     //we get the whole form then we can start messing with all the values inside it
-    console.log(this.contactForm);
     const submissionDate = new Date();
     const contactSubmission: ContactFormData = new ContactFormData(
       this.contactForm.value['name'],
@@ -68,17 +68,15 @@ export class ContactFormComponent implements OnInit {
     );
 
     console.log('in onSubmit: ', this.contactForm.valid);
-    if (this.contactForm.valid) {
-      this.messageService.postContactForm(contactSubmission).subscribe({
-        next: (result) => {
-          console.log('success', result);
-        },
-        error: (error) => this.onHttpError(error),
-      });
-    } else {
-      this.postError = true;
-      this.postErrorMessage = 'please fix the above errors';
-    }
+    if (this.contactForm.valid) return;
+    this.messageService.postContactForm(contactSubmission).subscribe({
+      complete: () => {
+        this.submitProgress = 'success';
+      },
+      error: () => {
+        this.submitProgress = 'error';
+      },
+    });
   }
 
   //custom validator

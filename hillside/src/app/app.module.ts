@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 // importing this here as we are going to need it all over the place
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 // Imports for loading & configuring the in-memory web api
@@ -18,14 +18,21 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { WelcomeComponent } from './home/home.component';
 import { ContactFormComponent } from './contact/contact.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [AppComponent, WelcomeComponent, ContactFormComponent],
+  declarations: [
+    AppComponent,
+    WelcomeComponent,
+    ContactFormComponent,
+    LoginComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     CommonModule,
     InMemoryWebApiModule.forRoot(InMemoryDb),
     //below is the ones i've made

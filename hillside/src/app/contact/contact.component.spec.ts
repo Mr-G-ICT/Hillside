@@ -1,8 +1,6 @@
 import { ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 import { ContactFormComponent } from './contact.component';
-import { Component } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { of } from 'rxjs';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MessageService } from 'src/api/message.service';
 
 const requiredFields = ['name', 'email', 'enquiryType', 'contactMessage'];
@@ -25,20 +23,23 @@ describe('Contact Form Component', () => {
     signupService = jasmine.createSpyObj<MessageService>('MessageService', {
     });
 
-  it(`should have as title 'Contact Us'`, () => {
-    const fixture = TestBed.createComponent(ContactFormComponent);
-    const app = fixture.componentInstance;
-    expect(app.pageTitle).toEqual('Contact Us');
-  });
-
-  it('should create a form called contactform'),
-    () => {
+    it(`should have as title 'Contact Us'`, () => {
       const fixture = TestBed.createComponent(ContactFormComponent);
       const app = fixture.componentInstance;
-      app.ngOnInit();
-    };
-});
+      expect(app.pageTitle).toEqual('Contact Us');
+    });
 
-it('should submit the form successfully', fakeAsync(async () => {
-  await setup();
-}))
+    it('should create a form called contactform'),
+      () => {
+        const fixture = TestBed.createComponent(ContactFormComponent);
+        const app = fixture.componentInstance;
+        app.ngOnInit();
+      };
+  })
+
+//   //need to complete tests
+// it('should submit the form successfully', fakeAsync(async () => {
+  
+
+//   //await setup();
+// }))

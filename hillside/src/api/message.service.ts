@@ -20,9 +20,11 @@ export class MessageService {
     );
   }
 
-  postContactForm(contactData: ContactFormData): Observable<any> {
+  postContactForm<Response>(
+    contactData: ContactFormData
+  ): Observable<Response> {
     //set up the post command for the HTTP client.
-    return this.httpClient.post(
+    return this.httpClient.post<Response>(
       'https://www.putsreq.com/MIcWHfg2SQIa2a9MJIzX',
       contactData
     );

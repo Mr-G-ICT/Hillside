@@ -6,6 +6,9 @@
     <li *ngIf="!isLoggedIn">
       <a class="nav-element" routerLink="/login">Log In</a>
     </li>
+    <li *ngIf="isLoggedIn" routerLink="/messages">
+      <a class="nav-element">View Messages</a>
+    </li>
     <li *ngIf="isLoggedIn" routerLink="/welcome">
       <a class="nav-element">Log Out</a>
     </li>
