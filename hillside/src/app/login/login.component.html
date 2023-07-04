@@ -10,7 +10,7 @@
       autocomplete="off"
     >
       <fieldset>
-        <div class="row form-group">
+        <div class="row mt-2 form-group">
           <div class="col-sm-2 col-form-label">
             <label for="name">UserName</label>
           </div>
@@ -18,39 +18,49 @@
             <input
               id="userName"
               name="userName"
+              placeholder="Username(required)"
               [(ngModel)]="currentLoginSettings.userName"
               type="text"
               #nameField="ngModel"
               required
-              class="col-md-8"
+              class="col-sm-5"
               (blur)="onBlur(nameField)"
               [class.field-error]="form.submitted && nameField.invalid"
             />
             <div
               [hidden]="!form.submitted || nameField.valid"
-              class="alert alert-danger"
+              class="alert alert-danger col-sm-5"
             >
               enter a username
             </div>
           </div>
         </div>
 
-        <div class="row mt-2">
-          <label for="passwordId" class="col-md-2 col-form-label"
+        <div class="row mt-2 form-group">
+          <label for="passwordId" class="col-sm-2 col-form-label"
             >Password</label
           >
-          <input
-            id="passwordId"
-            type="password"
-            placeholder="Password(required)"
-            required
-            ngModel
-            name="password"
-            #passwordVar="ngModel"
-            class="col-md-8"
-            required
-            minlength="3"
-          />
+          <div class="col-sm-5">
+            <input
+              id="passwordId"
+              type="password"
+              placeholder="Password(required)"
+              required
+              ngModel
+              name="password"
+              #passField="ngModel"
+              class="col-sm-5"
+              required
+              minlength="3"
+            />
+
+            <div
+              [hidden]="!form.submitted || passField.valid"
+              class="alert alert-danger col-sm-5"
+            >
+              enter a password
+            </div>
+          </div>
         </div>
 
         <div [hidden]="!postError" class="alert alert-danger">

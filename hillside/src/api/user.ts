@@ -1,6 +1,7 @@
 /* Defines the user entity */
-export interface User {
+export interface IUser {
   userId: number;
   userName: string;
   isAdmin: boolean;
+  passWord: string;
 }
