@@ -1,10 +1,14 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { ContactFormData } from '../app/contact/contact.model';
 import { IUser } from './user';
+import { IEvent } from './event';
 
 export class InMemoryDb implements InMemoryDbService {
   constructor() {}
-  createDb(): { /*messages: ContactFormData[];*/ users: IUser[] } {
+  createDb(): {
+    /*messages: ContactFormData[];*/ users: IUser[];
+    events: IEvent[];
+  } {
     /*const messages: ContactFormData[] = [
       {
         name: 'bob Smith',
@@ -28,6 +32,20 @@ export class InMemoryDb implements InMemoryDbService {
         passWord: 'test',
       },
     ];
-    return { /*messages,*/ users };
+    const events: IEvent[] = [
+      {
+        eventId: 1,
+        eventName: 'test Event',
+        eventDesc: 'this is a test event',
+        eventDate: '1979-05-23',
+      },
+      {
+        eventId: 2,
+        eventName: 'test Event 2',
+        eventDesc: 'this is a test event 2',
+        eventDate: '1979-05-22',
+      },
+    ];
+    return { /*messages,*/ users, events };
   }
 }

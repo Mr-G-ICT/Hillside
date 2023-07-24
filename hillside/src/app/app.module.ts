@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 // Imports for loading & configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 //only one database tables in here, messages, need to rename
-import { InMemoryDb } from '../api/messageData';
+import { InMemoryDb } from '../api/data';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
