@@ -19,12 +19,14 @@ import { LayoutModule } from './layout/layout.module';
 import { WelcomeComponent } from './home/home.component';
 import { ContactFormComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
+import { EventListComponent } from './events/event-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     ContactFormComponent,
+    EventListComponent,
     LoginComponent,
   ],
   imports: [
