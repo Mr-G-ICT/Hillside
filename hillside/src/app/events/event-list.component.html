@@ -1,1 +1,30 @@
-this is a test
+<div class="container">
+  <h3>{{ pageTitle }}</h3>
+
+  <div class="table-responsive">
+    <table class="card-body table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Event Name</th>
+          <th>Event Description</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of eventList">
+          <td>event</td>
+          <td>event test</td>
+          <td>event desc</td>
+          <td><button>put button in here</button></td>
+        </tr>
+        <tr>
+          <td>date1</td>
+          <td>event test</td>
+          <td>event desc</td>
+          <td><button>put button in here</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
